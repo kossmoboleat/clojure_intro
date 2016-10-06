@@ -117,25 +117,42 @@ from [xkcd](https://xkcd.com/224/)
 (ns clojureintro)
 
 (+ 1 1)
+=> 2
 
 (defn hello [name]
   (str "Hello " name))
+=> #'user/hello
+
+(hello "Tim")
+=> "Hello Tim"
 
 (defn odd-numbers [max]
   (filter odd? (range max)))
+=> #'user/odd-numbers
+
+(odd-numbers 10)
+=> (1 3 5 7 9)
 
 (def keymap {:a 1, :b 2, :c 3})
+=> #'user/keymap
 
-(keymap :a) ; => 1
+(keymap :a)
+=> 1
 ```
 ]
+
+---
+
+class: center, middle
+
+<a href="https://imgflip.com/i/1buw2j"><img src="https://i.imgflip.com/1buw2j.jpg" title="made at imgflip.com"/></a>
 
 ---
 
 .left-column[
 ## Syntax 101
 ### *-example*
-### *-data types*
+### *-primitives*
 ]
 .right-column[
 
@@ -143,13 +160,13 @@ from [xkcd](https://xkcd.com/224/)
 
 - Doubles `1.234`, BigDecimals `1.2345M`
 
-- Ratios  `17/4`
+- .red.bold[Ratios `17/4`]
 
 - Strings `"fred"`
 
-- Symbols `fred`, Keywords `:fred`
+- .red.bold[Symbols `fibonacci`], Keywords `:fred`
 
-- Boolean `true` `false`, Null `nil`
+- Boolean `true` `false`, .red.bold[null `nil`]
 
 - Regex Patterns `#"a*b"`
 ]
@@ -177,33 +194,28 @@ from [xkcd](https://xkcd.com/224/)
 - Sets
 
 `#{fred ethel lucy}`
-
-- Everything Nests
 ]
+
+???
+Everything Nests
+
+All types support mixed key and value types
+
 ---
 
 .left-column[
 ## Syntax 101
 ### *-example*
-### *-data types*
+### *-primitives*
 ### *-data structures*
 ### *-persistent & immutable*
 ]
 .right-column[
-- Persistent 
-
-- Immutable
+- Persistent and immutable
 
 - Same amortized complexity
 
-- All types support mixed key and value types
-
 - Plethora of collection functions
-
-- Representation = Initialization syntax
-
-- Serialization to EDN
-
 ]
 ---
 
@@ -211,59 +223,88 @@ class: center, middle
 
 # Demo
 
+???
+# REPL
+
+- run code from file
+
+# data structures
+
+- Representation = Initialization syntax
+- Serialization to EDN
+
+# key shortcuts
+
+Toggle Presentation Mode - hyper+p  
+Go to REPL - hyper+r  
+Maximize/Restore Tool Window - hyper+m  
+Reload file in REPL - hyper+k  
+
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ]
 .right-column[
-- first stable release in 2009
-
 - LISP specified in 1958
+
+- first stable release of Clojure in 2009
 
 - runs on the JVM (and .NET VM CLR)
 
 - sister language Clojurescript that transpiles to Javascript
-
-- designed by Rich Hickey
 ]
+
+???
+- designed by Rich Hickey
+
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ]
 .right-column[
-- macros (no user defined reader macros)
+# Same
 
-- code-as-data
+- Syntax and Code-as-data (Homoiconic)
 
-- not compatible with common lisp
+- Dynamic & Functional
 
-- extends Lisps syntax for lists with literals for maps and vectors
+# Different
+
+- no user defined reader macros
+
+- not compatible with Common Lisp
+
+- literals for lists () plus maps {} and vectors []
 ]
+
+???
+
+- Homoiconic = good for macros
 
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ]
 .right-column[
-- about on par with Java
+- about as fast as Java
 
-- faster than Python, Javascript, Ruby, Lisp
+- faster than Python, Javascript, Ruby, Common Lisp
 
-- slow startup because of the JVM
+- same slow startup as everything on the JVM
 ]
 
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ### *-OO*
 ]
@@ -274,11 +315,16 @@ class: center, middle
 
 - multimethods for polymorphism++
 ]
+
+???
+
+- multimethods = "multiple dispatch"
+
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ### *-OO*
 ### *-dynamic*
@@ -290,7 +336,7 @@ class: center, middle
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ### *-OO*
 ### *-dynamic*
@@ -298,19 +344,35 @@ class: center, middle
 .right-column[
 - dynamic strong typed language
 
-- type errors vs. quality; you still need tests
+- type errors vs. quality; static typing + tests
 
 - optional/gradual typing available: [core.typed](https://github.com/clojure/core.typed)
 
-- clojure spec
+- types + validator with [clojure spec](http://clojure.org/guides/spec)
 
-- prismatic schema
+
+```clojure
+(def email-regex #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$")
+(s/def ::email-type (s/and string? #(re-matches email-regex %)))
+
+(s/def ::acctid int?)
+(s/def ::first-name string?)
+(s/def ::last-name string?)
+(s/def ::email ::email-type)
+
+(s/def ::person (s/keys :req [::first-name ::last-name ::email]
+                        :opt [::phone]))
+```
 ]
+
+???
+- Predecessor: prismatic/plumatic schema
+
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ### *-OO*
 ### *-dynamic*
@@ -319,28 +381,33 @@ class: center, middle
 .right-column[
 - "Automatic tail call optimization is not supported as the JVM", possible with `recur` [1](https://www.youtube.com/watch?v=2y5Pv4yN0b0&t=1h02m18s) [2](https://en.wikipedia.org/wiki/Clojure)
   
-  - Brian Goetz "It's not the highest priority [..] but we will eventually get there."
+  - Brian Goetz: "It's not the highest priority [..] but we will eventually get there."
 
-- lazy sequences
+- lazy infinite sequences > Java streams
 
 - macros
 
 ```clojure
 (when true "Hello")
+=> "Hello"
+(when false "Hello")
+=> nil
 
 (defmacro unless [arg & body]
   `(if (not ~arg)
      (do ~@body)))
 
 (unless false "Hello")
- ; -> "Hello"
+=> "Hello"
+(unless true "Hello")
+=> nil
 ```
 ]
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ### *-OO*
 ### *-dynamic*
@@ -348,9 +415,7 @@ class: center, middle
 ### *-concise*
 ]
 .right-column[
-- smaller size -> less bugs
-
-- very concise syntax for functions
+- very concise syntax, e.g. anonymous fn's: `#(= "TUI")`
 
 - value objects are just data
 
@@ -367,7 +432,7 @@ getParameterValues, getProtocol ...```
 
 [//]: # (getAsyncContext, getAttribute, getAttributeNames, getCharacterEncoding, getContentLength, getContentLengthLong, getContentType, getDispatcherType, getInputStream, getLocalAddr, getLocale, getLocales, getLocalName, getLocalPort, getParameter, getParameterMap, getParameterNames, getParameterValues, getProtocol, getReader, getRealPath, getRemoteAddr, getRemoteHost, getRemotePort, getRequestDispatcher, getScheme, getServerName, getServerPort, getServletContext, isAsyncStarted, isAsyncSupported, isSecure, removeAttribute, setAttribute, setCharacterEncoding, getAuthType, getContextPath, getCookies, getDateHeader, getHeader, getHeaderNames, getHeaders, getIntHeader, getMethod, getPart, getParts, getPathTranslated, getQueryString, getRemoteUser, getRequestedSessionId, getRequestURI, getRequestURL, getServletPath, getSession, getUserPrincipal, isRequestedSessionIdFromCookie, isRequestedSessionIdFromUrl, isRequestedSessionIdFromURL, isRequestedSessionIdValid(), isUserInRole)
 
-- Clojure
+- Clojure ring libray http `request`
 
 ```clojure
 {
@@ -377,11 +442,15 @@ getParameterValues, getProtocol ...```
 ...
 }```
 ]
+
+???
+- smaller size -> less bugs
+
 ---
 
 .left-column[
 ## Language
-### *-origins*
+### *-a LISP?*
 ### *-performance*
 ### *-OO*
 ### *-dynamic*
@@ -390,20 +459,24 @@ getParameterValues, getProtocol ...```
 ### *-Java interop*
 ]
 .right-column[
+- mostly the same primitives (numbers, chars, strings)
+
+- data structures implement Java Collection interfaces
+
 - easy to access Java libraries
 
-- many popular libraries wrap existing battle-tested code, e.g for security
-
-- inherits JVM's platforms
-
-- deployment as JAR or WAR like any Java application
-
-- Clojure data structures implement Java interfaces like Collection, Map
-
-- Strings are Java Strings
-
-- Numbers are Java Numbers
+- inherits "write once, run anywhere"
 ]
+
+???
+- many popular libraries wrap existing battle-tested code, e.g for security
+- similar deployment as war or jar with embedded web server
+---
+
+class: center, middle
+
+<a href="https://imgflip.com/i/1buwin"><img src="https://i.imgflip.com/1buwin.jpg" title="made at imgflip.com"/></a>
+
 ---
 
 .left-column[
@@ -412,7 +485,7 @@ getParameterValues, getProtocol ...```
 ]
 .right-column[
 
-- hiccup
+- easy to create DSLs like hiccup
 
 ```clojure
 [:div {:class "well"}
@@ -434,16 +507,23 @@ getParameterValues, getProtocol ...```
 ### *-Tooling*
 ]
 .right-column[
-- two popular build tools called [Leinigen](http://leiningen.org/) and [Boot](http://boot-clj.com/)
+
+## Build Tools
+
+- [Leinigen](http://leiningen.org/)=Maven and [Boot](http://boot-clj.com/)=Gradle
   - both tap into the maven repository
 
-- editors [emacs](https://github.com/clojure-emacs/cider), [vim](https://github.com/guns/vim-clojure-static) [2](https://github.com/tpope/vim-fireplace)
+## Editors and IDEs 
 
-- IDEs  
-  - [cursive](https://cursive-ide.com/) -plugin for intellij, 
-  - [counterclockwise](http://doc.ccw-ide.org/) -plugin for eclipse, 
-  - [lighttable](http://lighttable.com/)
+- [cursive](https://cursive-ide.com/) plugin for intellij, 
+- [emacs](https://github.com/clojure-emacs/cider), [vim](https://github.com/guns/vim
+-clojure-static) [2](https://github.com/tpope/vim-fireplace)
+- [counterclockwise](http://doc.ccw-ide.org/) -plugin for eclipse, 
+- [lighttable](http://lighttable.com/)
 
+## Interactive Programming
+
+- [figwheel](https://www.youtube.com/watch?v=KZjFVdU8VLI)
 ]
 
 ---
@@ -456,9 +536,32 @@ getParameterValues, getProtocol ...```
 ### *-Libraries*
 ]
 .right-column[
+
+- Libraries instead of frameworks
+
+## Backend
+
 - compojure for the backend which builds on ring
 
-- reagent (and om) are the most popular SPA frameworks
+- thin SQL wrappers instead of ORM
+
+  - korma, yesql or Clojure's JDBC
+
+
+## Frontend
+
+- reagent (and om) are clojure wrappers for react
+
+- Google closure optimizes code 
+
+- "isomorphic" code (used in frontend and backend)
+
+- Javascript interop from Clojurescript
+
+]
+
+???
+- reagent (and om) are clojure wrappers for react
 
   - many concepts overlap with functional programming
 
@@ -466,28 +569,13 @@ getParameterValues, getProtocol ...```
 
   - redux vs central state atom
 
-- thin SQL wrappers
-
-  - korma, yesql
-
-  - or just Clojure's JDBC
-
-- figwheel, [example](https://www.youtube.com/watch?v=KZjFVdU8VLI)
-
-- Google closure
-
-- "isomorphic" code (used in frontend and backend)
-
-- Javascript interop
-
-- Libraries instead of frameworks
-  - arachne web framework [discussion](http://arachne-framework.org/posts/2016/frameworks-libraries-and-templates/) 
-
 - name pearls
   - security libs friend & buddy
 
   - XML-RPC lib [necessary evil](https://github.com/brehaut/necessary-evil)
-]
+
+- arachne web framework [discussion](http://arachne-framework.org/posts/2016/frameworks-libraries-and-templates/) 
+
 ---
 
 class: center, middle
@@ -551,9 +639,9 @@ class: center, middle
 <script src="https://remarkjs.com/downloads/remark-latest.min.js">
 </script>
 <script>
-      var slideshow = remark.create();
-
-
+  var slideshow = remark.create({
+    slideNumberFormat: '' // disable slide numbers
+  });
 </script>
 </body>
 </html>
