@@ -57,11 +57,8 @@ from [xkcd](https://xkcd.com/224/)
 ]
 
 ---
-
-class: center, middle
-
-![all the syntax](https://i.imgflip.com/1buw2j.jpg)
-
+class: fullslide-image
+background-image: url(all_the_syntax.jpg)
 ---
 
 .left-column[
@@ -283,7 +280,7 @@ Reload file in REPL - hyper+k
 ]
 .right-column[
 - "Automatic tail call optimization is not supported as the JVM", possible with `recur` [1](https://www.youtube.com/watch?v=2y5Pv4yN0b0&t=1h02m18s) [2](https://en.wikipedia.org/wiki/Clojure)
-  
+
   - Brian Goetz: "It's not the highest priority [..] but we will eventually get there."
 
 - lazy infinite sequences > Java streams
@@ -325,13 +322,13 @@ Reload file in REPL - hyper+k
 - Java `javax.servlet.http.HttpServletRequest`
 
 ```java
-getAsyncContext, getAttribute, getAttributeNames, 
-getCharacterEncoding, getContentLength, 
-getContentLengthLong, getContentType, getDispatcherType, 
-getInputStream, getLocalAddr, getLocale, 
-getLocales, getLocalName, getLocalPort, getParameter, 
-getParameterMap, getParameterNames, 
-getParameterValues, getProtocol ... 
+getAsyncContext, getAttribute, getAttributeNames,
+getCharacterEncoding, getContentLength,
+getContentLengthLong, getContentType, getDispatcherType,
+getInputStream, getLocalAddr, getLocale,
+getLocales, getLocalName, getLocalPort, getParameter,
+getParameterMap, getParameterNames,
+getParameterValues, getProtocol ...
 ```
 
 [//]: # (getAsyncContext, getAttribute, getAttributeNames, getCharacterEncoding, getContentLength, getContentLengthLong, getContentType, getDispatcherType, getInputStream, getLocalAddr, getLocale, getLocales, getLocalName, getLocalPort, getParameter, getParameterMap, getParameterNames, getParameterValues, getProtocol, getReader, getRealPath, getRemoteAddr, getRemoteHost, getRemotePort, getRequestDispatcher, getScheme, getServerName, getServerPort, getServletContext, isAsyncStarted, isAsyncSupported, isSecure, removeAttribute, setAttribute, setCharacterEncoding, getAuthType, getContextPath, getCookies, getDateHeader, getHeader, getHeaderNames, getHeaders, getIntHeader, getMethod, getPart, getParts, getPathTranslated, getQueryString, getRemoteUser, getRequestedSessionId, getRequestURI, getRequestURL, getServletPath, getSession, getUserPrincipal, isRequestedSessionIdFromCookie, isRequestedSessionIdFromUrl, isRequestedSessionIdFromURL, isRequestedSessionIdValid(), isUserInRole)
@@ -377,11 +374,8 @@ getParameterValues, getProtocol ...
 - many popular libraries wrap existing battle-tested code, e.g for security
 - similar deployment as war or jar with embedded web server
 ---
-
-class: center, middle
-
-![web of parentheses](https://i.imgflip.com/1buwin.jpg)
-
+class: fullslide-image
+background-image: url(the_web_of_parantheses.jpg)
 ---
 
 .left-column[
@@ -418,12 +412,12 @@ class: center, middle
 - [Leinigen](http://leiningen.org/)=Maven and [Boot](http://boot-clj.com/)=Gradle
   - both tap into the maven repository
 
-## Editors and IDEs 
+## Editors and IDEs
 
-- [cursive](https://cursive-ide.com/) plugin for intellij, 
+- [cursive](https://cursive-ide.com/) plugin for intellij,
 - [emacs](https://github.com/clojure-emacs/cider), [vim](https://github.com/guns/vim
 -clojure-static) [2](https://github.com/tpope/vim-fireplace)
-- [counterclockwise](http://doc.ccw-ide.org/) -plugin for eclipse, 
+- [counterclockwise](http://doc.ccw-ide.org/) -plugin for eclipse,
 - [lighttable](http://lighttable.com/)
 
 ## Interactive Programming
@@ -457,7 +451,7 @@ class: center, middle
 
 - reagent (and om) are clojure wrappers for react
 
-- Google closure optimizes code 
+- Google closure optimizes code
 
 - "isomorphic" code (used in frontend and backend)
 
@@ -479,7 +473,7 @@ class: center, middle
 
   - XML-RPC lib [necessary evil](https://github.com/brehaut/necessary-evil)
 
-- arachne web framework [discussion](http://arachne-framework.org/posts/2016/frameworks-libraries-and-templates/) 
+- arachne web framework [discussion](http://arachne-framework.org/posts/2016/frameworks-libraries-and-templates/)
 
 ---
 
