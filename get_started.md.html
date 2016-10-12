@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>get_started</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(186, 190, 189); overflow: auto; background-color: rgb(14, 17, 18); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(143, 151, 148); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(186, 190, 189); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(143, 151, 148); border-color: rgb(50, 60, 64); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(50, 60, 64); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(50, 60, 64); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(32, 39, 41); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(23, 28, 29); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(50, 60, 64) rgb(50, 60, 64) rgb(36, 44, 47); background-color: rgb(32, 39, 41); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.markdown-preview code { text-shadow: none; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+.pre.editor-colors,
+.host {
+  background-color: #0e1112;
+  color: #babebd;
+}
+.pre.editor-colors,
+.host {
+  background-color: #0e1112;
+  color: #babebd;
+}
+.pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background: rgba(245, 250, 255, 0.04);
+}
+.pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(245, 250, 255, 0.04);
+}
+.pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(255, 255, 255, 0.1);
+}
+.pre.editor-colors .gutter,
+.host .gutter {
+  background-color: #090b0d;
+  color: #4d5a5e;
+}
+.pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  background: #090b0d;
+  color: #4d5a5e;
+  padding-left: 10px;
+}
+.pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  background-color: #0e1112;
+  color: #519aba;
+  font-weight: 100;
+}
+.pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: #0e1112 !important;
+  color: #519aba;
+}
+.pre.editor-colors .gutter .line-number:hover,
+.host .gutter .line-number:hover {
+  background-color: #090b0d !important;
+  color: #519aba;
+}
+.pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+.pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+.pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #FFF;
+  background: #4d5a5e;
+}
+.pre.editor-colors .invisible,
+.host .invisible {
+  color: rgba(255, 255, 255, 0.1);
+}
+.pre.editor-colors .cursor,
+.host .cursor {
+  border-color: #babebd !important;
+  border-left: solid 2px;
+}
+.pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #1d5b91;
+}
+.pre.editor-colors .scroll-view,
+.host .scroll-view {
+  padding-left: 10px;
+}
+.pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background: rgba(0, 0, 0, 0.2) !important;
+}
+.bracket-matcher .region {
+  border-bottom: 1px solid #519aba;
+  margin-top: 2px;
+}
+pre.editor-colors[mini] .scroll-view,
+.host(.mini) .scroll-view {
+  padding-left: 1px;
+}
+.text {
+  color: #babebd;
+}
+.complete_tag {
+  color: #7494a3;
+}
+.comment {
+  color: #4d5a5e;
+  background: none;
+}
+.constant {
+  color: #a074c4;
+}
+.constant.character.escape {
+  color: #a074c4;
+}
+.constant.name.attribute.tag {
+  color: #519aba;
+}
+.constant.numeric {
+  color: #a074c4;
+}
+.constant.other.color {
+  color: #a074c4;
+}
+.constant.other.symbol {
+  color: #a074c4;
+}
+.entity {
+  color: #cbcb41;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #a074c4;
+}
+.entity.name.function {
+  color: #cbcb41;
+}
+.entity.name.section {
+  color: #cbcb41;
+}
+.entity.name.tag {
+  color: #519aba;
+  text-decoration: none;
+}
+.entity.name.tag.block,
+.entity.name.tag.inline,
+.entity.name.tag.name {
+  color: #519aba;
+}
+.entity.name.tag.structure {
+  color: #519aba;
+}
+.entity.name.tag.block {
+  color: #519aba;
+}
+.entity.name.type {
+  color: #519aba;
+  text-decoration: none;
+}
+.entity.name.type.tag {
+  color: #8dc149;
+}
+.entity.other.attribute-name {
+  color: #8dc149;
+}
+.entity.other.attribute-name.id {
+  color: #8dc149;
+}
+.entity.other.inherited-class {
+  color: #cbcb41;
+}
+.invalid.illegal,
+.invalid.deprecated {
+  background: none;
+  color: #cc3e44;
+}
+.keyword {
+  color: #cc3e44;
+}
+.keyword.control {
+  color: #8dc149;
+}
+.keyword.operator {
+  color: #cc3e44;
+}
+.keyword.operator.assignment {
+  color: #4d5a5e;
+}
+.keyword.operator.new {
+  color: #7494a3;
+}
+.keyword.other.important {
+  color: #cc3e44;
+}
+.keyword.other.special-method {
+  color: #cc3e44;
+}
+.keyword.other.unit {
+  color: #cc3e44;
+}
+.markup.bold {
+  color: #babebd;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #babebd;
+}
+.markup.deleted {
+  color: #babebd;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #babebd;
+}
+.markup.inserted {
+  color: #babebd;
+}
+.markup.italic {
+  color: #babebd;
+  font-style: italic;
+}
+.markup.list {
+  color: #babebd;
+}
+.markup.quote {
+  color: #9ac4d7;
+}
+.markup.raw.inline {
+  color: #babebd;
+}
+.meta.link {
+  color: #babebd;
+}
+.meta.require {
+  color: #babebd;
+}
+.meta.brace.curly {
+  color: #6b7471;
+}
+.meta.brace.round {
+  color: #babebd;
+}
+.meta.control.flow {
+  color: #8dc149;
+}
+.meta.comma {
+  color: #4d5a5e;
+}
+.meta.selector {
+  color: #4d5a5e;
+}
+.meta.separator {
+  background-color: #4d5a5e;
+  color: #4d5a5e;
+}
+.meta.tag {
+  color: #519aba;
+}
+.none {
+  color: #babebd;
+}
+.punctuation {
+  color: #4d5a5e;
+}
+.punctuation.terminator {
+  color: #4d5a5e;
+}
+.punctuation.separator {
+  color: #4d5a5e;
+}
+.punctuation.definition {
+  color: #4d5a5e;
+}
+.punctuation.definition.array {
+  color: #519aba;
+}
+.punctuation.definition.bold {
+  color: #babebd;
+  font-weight: bold;
+}
+.punctuation.definition.comment {
+  color: #4d5a5e;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity,
+.punctuation.definition.italic {
+  color: #babebd;
+}
+.punctuation.definition.italic {
+  font-style: italic;
+}
+.punctuation.definition.string {
+  color: #519aba;
+}
+.punctuation.definition.string.begin,
+.punctuation.definition.string.end {
+  color: #9ac4d7;
+}
+.punctuation.definition.variable {
+  color: #7494a3;
+}
+.punctuation.definition.parameters {
+  color: #babebd;
+}
+.punctuation.definition.tag {
+  color: #519aba;
+}
+.punctuation.section.embedded {
+  color: #babebd;
+}
+.string {
+  color: #519aba;
+}
+.string .constant {
+  color: #a074c4;
+}
+.string.interpolated {
+  color: #7494a3;
+}
+.string.regexp {
+  color: #519aba;
+}
+.string.regexp .constant.character.escape,
+.string.regexp .source.ruby.embedded,
+.string.regexp .string.regexp.arbitrary-repitition {
+  color: #519aba;
+}
+.string.regexp.group {
+  color: #519aba;
+}
+.string.regexp.character-class {
+  color: #519aba;
+}
+.string.regexp .source.ruby.embedded {
+  color: #519aba;
+}
+.string.quoted.double {
+  color: #9ac4d7;
+}
+.string.quoted.single {
+  color: #9ac4d7;
+}
+.string .variable {
+  color: #7494a3;
+}
+.string.other.link {
+  color: #519aba;
+}
+.source {
+  color: #519aba;
+}
+.storage {
+  color: #d4d7d6;
+}
+.storage.modifier {
+  color: #d4d7d6;
+}
+.storage.type.class {
+  color: #d4d7d6;
+}
+.storage.type.function {
+  color: #d4d7d6;
+}
+.storage.type.var {
+  color: #d4d7d6;
+}
+.support {
+  color: #a074c4;
+}
+.support.class {
+  color: #a074c4;
+}
+.support.function {
+  color: #cbcb41;
+}
+.support.function.decl {
+  color: #519aba;
+}
+.support.constant {
+  color: #a074c4;
+}
+.support.type.property-name {
+  color: #babebd;
+}
+.variable {
+  color: #7494a3;
+}
+.variable.control.import.include {
+  color: #8dc149;
+}
+.variable.other {
+  color: #cc3e44;
+}
+.variable.other.property {
+  color: #cc3e44;
+}
+.variable.other.module {
+  color: #a074c4;
+}
+.variable.other.module-alias {
+  color: #519aba;
+}
+.variable.other.object {
+  color: #8dc149;
+}
+.variable.parameter.function {
+  color: #cbcb41;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #519aba;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #519aba;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #babebd;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #a074c4;
+}
+.mustache .meta.tag.template {
+  color: #519aba;
+}
+.mustache .meta.tag.template .entity.name.tag {
+  color: #9ac4d7;
+}
+.source.python .class {
+  color: #a074c4;
+}
+.source.python .support.function.magic,
+.source.python .inherited-class {
+  color: #93acb7;
+}
+.source.python .support.function.magic .support.function.builtin.python,
+.source.python .inherited-class .support.function.builtin.python {
+  color: #93acb7;
+}
+.source.python .storage,
+.source.python .keyword {
+  color: #d4d7d6;
+}
+.source.python .string {
+  color: #519aba;
+}
+.source.python .string.block {
+  color: #2f6076;
+}
+.source.python .string.block .keyword {
+  color: #2f6076;
+}
+pre.editor-colors .line.split-diff-added,
+pre.editor-colors::shadow .line.split-diff-added {
+  background: #8dc149 !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+pre.editor-colors .line.split-diff-added .text span,
+pre.editor-colors::shadow .line.split-diff-added .text span,
+pre.editor-colors .line.split-diff-added .source span,
+pre.editor-colors::shadow .line.split-diff-added .source span {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+pre.editor-colors .line.split-diff-added .indent-guide,
+pre.editor-colors::shadow .line.split-diff-added .indent-guide {
+  opacity: 0;
+}
+pre.editor-colors .line.split-diff-removed,
+pre.editor-colors::shadow .line.split-diff-removed {
+  background: #cc3e44 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+pre.editor-colors .line.split-diff-removed .text span,
+pre.editor-colors::shadow .line.split-diff-removed .text span,
+pre.editor-colors .line.split-diff-removed .source span,
+pre.editor-colors::shadow .line.split-diff-removed .source span {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+pre.editor-colors .line.split-diff-removed .indent-guide,
+pre.editor-colors::shadow .line.split-diff-removed .indent-guide {
+  opacity: 0;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="taming-the-parentheses-get-started-with-clojure">Taming the parentheses - Get Started With Clojure</h1>
+<h2 id="-like-parentheses-">(like-parentheses?)</h2>
+<p>The first big difference of Clojure to C-style languages like Java and Javascript are the parentheses. To some they seem overly abundant, although the style is not <em>that</em> different.</p>
+<pre class="editor-colors lang-python"><div class="line"><span class="source python"><span class="meta function-call python"><span>println</span><span class="punctuation definition arguments begin python"><span>(</span></span><span class="meta function-call arguments python"><span class="string quoted double single-line python"><span class="punctuation definition string begin python"><span>&quot;</span></span><span>hello&nbsp;world</span><span class="punctuation definition string end python"><span>&quot;</span></span></span></span><span class="punctuation definition arguments end python"><span>)</span></span></span></span></div></pre>
+<p>is valid Python 3 while Clojure has</p>
+<pre class="editor-colors lang-clojure"><div class="line"><span class="source clojure"><span class="meta expression clojure"><span class="punctuation section expression begin clojure"><span>(</span></span><span class="entity name function clojure"><span>println</span></span><span>&nbsp;</span><span class="string quoted double clojure"><span class="punctuation definition string begin clojure"><span>&quot;</span></span><span>hello&nbsp;world</span><span class="punctuation definition string end clojure"><span>&quot;</span></span></span><span class="punctuation section expression end trailing clojure"><span>)</span></span><span class="meta after-expression clojure"><span>&nbsp;</span></span></span></span></div></pre>
+<p>Clojure now goes one step further and applies the same principle to almost anything like e.g. function declaration:</p>
+<pre class="editor-colors lang-clojure"><div class="line"><span class="source clojure"><span class="meta expression clojure"><span class="punctuation section expression begin clojure"><span>(</span></span><span class="meta definition global clojure"><span class="keyword control clojure"><span>defn</span></span><span>&nbsp;</span><span class="entity global clojure"><span>fun</span></span><span>&nbsp;</span><span class="meta vector clojure"><span class="punctuation section vector begin clojure"><span>[</span></span><span class="meta symbol clojure"><span>param</span></span><span class="punctuation section vector end trailing clojure"><span>]</span></span></span><span class="invalid trailing-whitespace"><span>&nbsp;</span></span></span></span></span></div><div class="line"><span class="source clojure"><span class="meta expression clojure"><span class="meta definition global clojure"><span>&nbsp;&nbsp;</span><span class="string quoted double clojure"><span class="punctuation definition string begin clojure"><span>&quot;</span></span><span>result</span><span class="punctuation definition string end clojure"><span>&quot;</span></span></span></span><span class="punctuation section expression end trailing clojure"><span>)</span></span><span class="meta after-expression clojure"><span>&nbsp;</span></span></span></span></div></pre>
+<h2 id="-watch-talk-">(watch talk)</h2>
+<p>To get a real sense if Clojure is for you, I suggest watching the excellent talk <a href="https://www.youtube.com/watch?v=VSdnJDO-xdg">Clojure, made simple</a> by the language creator Rich Hickey.</p>
+<p>At my company I&#39;ve held a Clojure talk recently too and tried to give an overview of the language and present its applications in web development. Of course without a video you miss out on the demos but it might be worth to skip through quickly anyway: <a href="https://kossmoboleat.github.io/clojure_intro">Clojure - The Average Joe&#39;s Lisp</a>.</p>
+<p>My goal was to show that Clojure is far from the stereotype of an academic esoteric language and can be learned easily to elegantly solve real-world problems.</p>
+<p>Some other people have also taken a stab at this. The &quot;Clean-Code-Guy&quot; Robert Martin aka Uncle Bob have written about how they like Clojure:
+<a href="https://www.infoq.com/presentations/clojure-c">Clojure Is the New C</a>, <a href="http://thecleancoder.blogspot.de/2010/08/why-clojure.html">Why Clojure?</a></p>
+<h2 id="-try-">(try)</h2>
+<p>If you want to dive right in and write code, try the online interpreter (or <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>) <a href="http://www.tryclj.com/">tryclj.com</a> or try one of the easy beginner problems like finding the greatest common divisor with another interactive site <a href="http://www.4clojure.com/problem/66">4clojure.com</a> (you can also pick an easier one like <a href="http://www.4clojure.com/problem/14">this</a>). In a similar vein the katas from <a href="https://www.codewars.com">codewars.com</a> helped me get into the language (and become fluent in it).</p>
+<p>When you&#39;re ready to write some larger programs of your own I suggest you install the basic build tool <a href="http://leiningen.org/">Leinigen</a> like so on Unixy OSs (go to the website for Windows instructions):</p>
+<pre class="editor-colors lang-shell"><div class="line"><span class="source shell"><span>$&nbsp;wget&nbsp;https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein</span></span></div><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&nbsp;move&nbsp;if&nbsp;in&nbsp;a&nbsp;dir&nbsp;on&nbsp;your&nbsp;$PATH,&nbsp;like&nbsp;~/bin</span></span></span></div><div class="line"><span class="source shell"><span>$&nbsp;mv&nbsp;lein&nbsp;</span><span class="keyword operator tilde shell"><span>~</span></span><span>/bin</span></span></div><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&nbsp;make&nbsp;it&nbsp;executable</span></span></span></div><div class="line"><span class="source shell"><span>$&nbsp;chmod&nbsp;a+x&nbsp;</span><span class="keyword operator tilde shell"><span>~</span></span><span>/bin/lein</span></span></div><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&nbsp;run&nbsp;it&nbsp;once&nbsp;to&nbsp;self-install</span></span></span></div><div class="line"><span class="source shell"><span>$&nbsp;lein</span></span></div></pre>
+<p>To edit files I like the excellent <a href="https://cursive-ide.com/">cursive</a> plugin for IntelliJ (community edition is fine) or <a href="http://lighttable.com/">Light Table</a> if you&#39;re not a big IDE fan.</p>
+<p>As a starting point for web development I suggest the <a href="http://www.luminusweb.net/">Luminus</a> micro-framework which packs the best web libraries in one nice template a bit like [JHipster] generates a nice <a href="https://projects.spring.io/spring-boot/">Spring Boot</a> + AngularJS project. Just type this in a terminal:</p>
+<pre class="editor-colors lang-shell"><div class="line"><span class="source shell"><span>$&nbsp;lein&nbsp;new&nbsp;luminus&nbsp;my-app</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;</span><span class="support function builtin shell"><span>cd</span></span><span>&nbsp;my-app</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;lein&nbsp;run</span></span></div><div class="line"><span class="source shell"><span>Started&nbsp;server&nbsp;on&nbsp;port&nbsp;3000</span></span></div></pre>
+<p>Although I&#39;m skeptical of large frameworks the <a href="http://arachne-framework.org/">Arachne</a> is made by very knowledgeable web developers and will hopefully come out soon and not turn web development into plumbing of some magical components.</p>
+<h2 id="-read-">(read)</h2>
+<p>If you come this far, take a look at some of the excellent books on Clojure:</p>
+<ul>
+<li><a href="https://pragprog.com/book/shcloj/programming-clojure">Programming Clojure by Stuart Halloway</a></li>
+<li><a href="https://pragprog.com/book/dswdcloj2/web-development-with-clojure-second-edition">Web Development with Clojure by Dmitri Sotnikov</a></li>
+<li><a href="https://pragprog.com/book/vmclojeco/clojure-applied">Clojure Applied From Practice to Practitioner by Bend Vandgrift and Alex Miller</a></li>
+</ul></body>
+</html>
