@@ -1,4 +1,4 @@
-# Zäme die Klammern - Starten mit Clojure
+# Zähme die Klammern - Starten mit Clojure
 
 ## (like-parentheses?)
 
